@@ -7,7 +7,6 @@ let audio = [];
 const $list = document.getElementById("list");
 const $recorder = document.querySelector("audio-recorder");
 function createTemplate(data) {
-    console.log("DATA:", data);
     return html`${data.map((a) => html`
         <div class="item"><audio-player src=${a.url} date=${a.date}></audio-player></div>
     `)}`;

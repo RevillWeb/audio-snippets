@@ -45,15 +45,6 @@ class AudioPlayer extends LitElement {
         }
     }
 
-    updateComplete() {
-        console.log("URL:", this.src + "");
-        this._$audio = this.shadowRoot.getElementById("audio");
-        this._$audio.addEventListener("loadedmetadata", (event) => {
-            console.log(event);
-            
-        }, { once: true });
-    }
-
     _metadataLoaded() {
         if (this._$audio === null) this._$audio = this.shadowRoot.getElementById("audio");
         // There is a bug in Chrome which results in duration being Infinity

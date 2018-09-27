@@ -41,7 +41,6 @@ class AudioRecorder extends LitElement {
     _stopRecording() {
         
         this._recorder.addEventListener("stop", (event) => {
-            console.log("STOPPED:", event);
             this.dispatchEvent(new CustomEvent("audio-recorded", {
                 detail: {
                     date: new Date(),
