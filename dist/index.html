@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Audio Snippets</title>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            height: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-areas: 
+                "header"
+                "main";
+            grid-template-rows: 96px auto;
+        }
+        header {
+            grid-area: header;
+        }
+        main {
+            grid-area: main;
+            overflow-y: scroll;       
+        }
+        #list .item {
+            border-bottom: solid 1px #CCC;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <audio-recorder></audio-recorder>
+        </header>
+        <main>
+            <div id="list"></div>
+        </main>
+    </div>
+    
+<script type="text/javascript" src="main.js"></script></body>
+</html>

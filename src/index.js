@@ -4,11 +4,15 @@ import {render, html} from "lit-html";
 
 let audio = [];
 
+function share(event) {
+    console.log("SHARE:", event.detail);
+}
+
 const $list = document.getElementById("list");
 const $recorder = document.querySelector("audio-recorder");
 function createTemplate(data) {
     return html`${data.map((a) => html`
-        <div class="item"><audio-player src=${a.url} date=${a.date}></audio-player></div>
+        <div class="item"><audio-player src=${a.url} date=${a.date} @share=${share}></audio-player></div>
     `)}`;
 }
 $recorder.addEventListener("audio-recorded", (event) => {
@@ -18,3 +22,11 @@ $recorder.addEventListener("audio-recorded", (event) => {
     }, ...audio];
     render(createTemplate(audio), $list);
 });
+
+// Check that service workers are registered
+if ('serviceWorker' in navigator) {
+    // Use the window load event to keep the page load performant
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js');
+    });
+  }
