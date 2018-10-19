@@ -341,6 +341,6 @@ J((t,e)=>t.querySelector(e)),J((t,e)=>t.querySelectorAll(e));function J(t){retur
                     </svg>
                 </a>
             </div>                   
-        `}});let Q=[];const Y=document.getElementById("list");function tt(t){return O`${t.map(t=>O`
+        `}});const Q={};_w.addEventListener("message",function(t){const e=Q[t.data._id];e&&(e(t.data),delete Q[t.data._id])});let Y=[];const tt=document.getElementById("list");function et(t){return O`${t.map(t=>O`
         <div class="item"><audio-player src=${t.url} date=${t.date} @share=${function(t){console.log("SHARE:",t.detail)}}></audio-player></div>
-    `)}`}document.querySelector("audio-recorder").addEventListener("audio-recorded",t=>{F(tt(Q=[{...t.detail,url:URL.createObjectURL(t.detail.blob)},...Q]),Y)}),"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("/service-worker.js")})}]);
+    `)}`}document.querySelector("audio-recorder").addEventListener("audio-recorded",t=>{F(et(Y=[{...t.detail,url:URL.createObjectURL(t.detail.blob)},...Y]),tt)}),"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("/service-worker.js")})}]);

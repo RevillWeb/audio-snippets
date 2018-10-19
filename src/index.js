@@ -1,11 +1,13 @@
 import "./components/audio-recorder.js";
 import "./components/audio-player.js";
 import {render, html} from "lit-html";
+import CMBridge from "../lib/cm-app-bridge.js";
 
 let audio = [];
 
 function share(event) {
     console.log("SHARE:", event.detail);
+    CMBridge.sendText("HELLO!");
 }
 
 const $list = document.getElementById("list");
@@ -27,6 +29,6 @@ $recorder.addEventListener("audio-recorded", (event) => {
 if ('serviceWorker' in navigator) {
     // Use the window load event to keep the page load performant
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js');
+        navigator.serviceWorker.register('/service-worker.js');
     });
-  }
+}
