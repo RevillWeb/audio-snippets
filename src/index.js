@@ -7,7 +7,7 @@ let audio = [];
 
 function share(event) {
     console.log("SHARE:", event.detail);
-    CMBridge.sendText("HELLO!");
+    CMBridge.sendText("HELLO!").then(() => console.log("Success!")).catch((err) => console.error("Oh no!", err));
 }
 
 const $list = document.getElementById("list");
